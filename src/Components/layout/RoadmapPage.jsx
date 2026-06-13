@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import RoadmapSummaryView from './RoadmapSummaryView';
 import RoadmapDetailedViewContainer from './RoadmapDetailedViewContainer';
-import { ArrowLeft } from 'lucide-react'; // Menggunakan ikon agar tombol back lebih elegan
+import { ArrowLeft, LayoutDashboard, Map } from 'lucide-react'; // Menggunakan ikon agar tombol back lebih elegan
 
 const RoadmapPage = () => {
   const [selectedPhaseId, setSelectedPhaseId] = useState(null); 
@@ -38,9 +38,12 @@ const RoadmapPage = () => {
 
             {/* Judul sekarang bebas dari dorongan gap dan menempel sempurna di kiri */}
             {/* Saat kartu diklik, judul akan memudar dan bergeser sedikit ke kanan untuk memberi tempat pada tombol Back */}
-            <h2 className={`text-xl font-bold text-gray-900 transition-all duration-500 ease-in-out ${selectedPhaseId ? 'opacity-0 translate-x-4 pointer-events-none' : 'opacity-100 translate-x-0'}`}>
-                Project Roadmap
-            </h2>
+            <div className="flex items-center gap-3">
+                <Map size={24} className="text-teal-700" />
+                <h2 className={`text-xl font-bold text-gray-900 transition-all duration-500 ease-in-out ${selectedPhaseId ? 'opacity-0 translate-x-4 pointer-events-none' : 'opacity-100 translate-x-0'}`}>
+                    Project Roadmap
+                </h2>
+            </div>
         </div>
         
         {/* Area Konten Roadmap */}
