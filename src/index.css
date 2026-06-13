@@ -60,3 +60,7 @@
     background-clip: text;
   }
 }
+
+.box-prompt textarea::placeholder {
+  color: #000;
+}
