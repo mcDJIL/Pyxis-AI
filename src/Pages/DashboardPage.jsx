@@ -1,6 +1,7 @@
 import React from 'react';
 import ExecutiveSummary from '@/components/features/ExecutiveSummary';
 import StrategicMatrix from '@/components/features/StrategicMatrix';
+import VerticalRoadmapContainer from '@/Components/layout/RoadmapPage';
 
 // Asumsi menggunakan Lucide React untuk ikon
 import { FileText } from 'lucide-react'; 
@@ -27,6 +28,9 @@ const DashboardPage = () => {
 
         {/* 2. Memanggil Komponen Strategic Matrix */}
         <StrategicMatrix />
+
+        {/* 3. Memanggil Komponen Roadmap Vertikal */}
+        <VerticalRoadmapContainer />
 
       </div>
     </div>

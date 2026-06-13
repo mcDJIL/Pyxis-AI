@@ -1,9 +1,13 @@
-// swotData.js
+// swotData.jsx
+
+import React from 'react';
+import { TrendingUp, TrendingDown, Lightbulb, AlertTriangle } from 'lucide-react';
 
 export const swotData = [
   {
     id: 'strengths',
     title: "Strengths",
+    icon: <TrendingUp size={18} />,
     themeColor: "green",
     items: [
       "Proprietary NLP engine reduces integration time by 40%.",
@@ -13,6 +17,7 @@ export const swotData = [
   {
     id: 'weaknesses',
     title: "Weaknesses",
+    icon: <TrendingDown size={18} />,
     themeColor: "gray",
     items: [
       "Heavy reliance on single cloud provider (AWS) increases margin risk.",
@@ -22,6 +27,7 @@ export const swotData = [
   {
     id: 'opportunities',
     title: "Opportunities",
+    icon: <Lightbulb size={18} />,
     themeColor: "blue",
     items: [
       "Expansion into EMEA markets via strategic reseller partnerships.",
@@ -31,6 +37,7 @@ export const swotData = [
   {
     id: 'threats',
     title: "Threats",
+    icon: <AlertTriangle size={18} />,
     themeColor: "red",
     items: [
       "Incumbents bundling similar AI features for free.",
