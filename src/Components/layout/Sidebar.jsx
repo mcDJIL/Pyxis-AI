@@ -15,6 +15,7 @@ import {
 
 import { cn } from '../../Lib/Utils'
 import { useAnalysisStore } from '../../Store/AnalysisStore'
+import logo from '../../assets/images/logo.png'
 
 const navItems = [
   { to: '/history', icon: History, label: 'Riwayat' },
@@ -33,21 +34,52 @@ export default function Sidebar() {
       )}
     >
       {/* Header */}
-      <div
-        className={cn(
-          'py-5 flex items-center',
-          collapsed ? 'justify-center px-0' : 'gap-2.5 px-5'
-        )}
-      >
-        <div className="rounded-lg bg-brand flex items-center justify-center shadow-brand">
-          <Zap size={16} className="text-dark" />
-        </div>
+      <div className="h-16 px-3 flex items-center">
+        {collapsed ? (
+          <button
+            onClick={() => setCollapsed(false)}
+            className="
+              w-10 h-10
+              rounded-lg
+              flex items-center justify-center
+              text-text-secondary
+              hover:bg-surface-elevated
+              hover:text-text-primary
+              transition-all
+              cursor-pointer
+            "
+          >
+            <PanelLeftOpen size={18} />
+          </button>
+        ) : (
+          <div className="w-full flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <img
+                src={logo}
+                alt="Logo"
+                className="w-8 h-8 rounded-lg"
+              />
 
-        {!collapsed && (
-          <div>
-            <span className="font-semibold text-text-primary text-sm tracking-wide">
-              Pyxis
-            </span>
+              <span className="font-semibold text-text-primary text-md">
+                PyxisAI
+              </span>
+            </div>
+
+            <button
+              onClick={() => setCollapsed(true)}
+              className="
+                w-9 h-9
+                rounded-lg
+                flex items-center justify-center
+                text-text-secondary
+                hover:bg-surface-elevated
+                hover:text-text-primary
+                transition-all
+                cursor-pointer
+              "
+            >
+              <PanelRightOpen size={18} />
+            </button>
           </div>
         )}
       </div>
@@ -80,12 +112,12 @@ export default function Sidebar() {
 
           {!collapsed && (
             <>
-                <span className="flex-1">Obrolan Baru</span>
-                <ChevronRight
-                  size={12}
-                  className="opacity-0 group-hover:opacity-50 transition-opacity"
-                />
-              </>
+              <span className="flex-1">Obrolan Baru</span>
+              <ChevronRight
+                size={12}
+                className="opacity-0 group-hover:opacity-50 transition-opacity"
+              />
+            </>
           )}
         </NavLink>
 
@@ -120,25 +152,6 @@ export default function Sidebar() {
             )}
           </NavLink>
         ))}
-
-        {/* Button Collapse / Expand */}
-        <button
-          onClick={() => setCollapsed(!collapsed)}
-          className={cn(
-            'w-full cursor-pointer rounded-lg text-text-secondary hover:text-text-primary hover:bg-surface-elevated transition-all',
-            collapsed
-              ? 'flex justify-center py-3'
-              : 'flex items-center gap-3 px-3 py-2.5'
-          )}
-        >
-          {collapsed ? (
-            <PanelLeftOpen size={18} />
-          ) : (
-            <>
-              <PanelRightOpen size={18} />
-            </>
-          )}
-        </button>
 
         {!collapsed && history.length > 0 && (
           <div className="pt-4">

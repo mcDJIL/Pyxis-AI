@@ -13,7 +13,7 @@ export default function HomePage() {
                     </p>
                 </div>
 
-                <div className="box-prompt bg-white rounded-xl border border-slate-200 shadow-lg p-4">
+                <div className="box-prompt bg-white rounded-xl border border-slate-200 shadow-[0_0_8px_rgba(0,0,0,0.1)] p-4">
                     {/* Input Area */}
                     <Sparkles className='absolute' size={16} />
                     <textarea
@@ -51,6 +51,7 @@ export default function HomePage() {
                                 hover:scale-105
                                 transition
                                 button
+                                cursor-pointer
                             "
                         >
                             <ArrowUp size={18} />
