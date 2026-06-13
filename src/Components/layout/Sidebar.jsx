@@ -18,8 +18,8 @@ import { useAnalysisStore } from '../../Store/AnalysisStore'
 import logo from '../../assets/images/logo.png'
 
 const navItems = [
-  { to: '/history', icon: History, label: 'Riwayat' },
-  { to: '/settings', icon: Settings, label: 'Pengaturan' },
+  { to: '/history', icon: History, label: 'History' },
+  { to: '/settings', icon: Settings, label: 'Settings' },
 ]
 
 export default function Sidebar() {
@@ -112,7 +112,7 @@ export default function Sidebar() {
 
           {!collapsed && (
             <>
-              <span className="flex-1">Obrolan Baru</span>
+              <span className="flex-1">New Chat</span>
               <ChevronRight
                 size={12}
                 className="opacity-0 group-hover:opacity-50 transition-opacity"

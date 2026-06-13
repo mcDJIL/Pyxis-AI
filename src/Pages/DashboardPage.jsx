@@ -21,10 +21,10 @@ const DashboardPage = () => {
 
         <div className="mb-12">
           <h1 className="text-3xl font-bold text-gray-800">
-            Judul Bisnis Anda
+            Your Business Idea
           </h1>
           <p className="text-gray-600 mt-1">
-            Ringkasan singkat tentang bisnis Anda, visi, dan tujuan utama yang ingin dicapai.
+            Here's a comprehensive analysis of your business concept, covering market potential, competitive landscape, and strategic recommendations.
           </p>
         </div>
         
