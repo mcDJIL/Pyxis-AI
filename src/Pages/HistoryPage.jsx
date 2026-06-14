@@ -32,8 +32,8 @@ export default function HistoryPage() {
                 <HistoryCard
                 key={item.id}
                 id={item.id}
-                title={item.analysis?.analysis?.businessConcept?.businessName || 'Untitled'}
-                description={item.analysis?.analysis?.businessConcept?.description || 'No description available.'}
+                title={item.analysis?.businessConcept?.businessName || item.title || 'Untitled'}
+                description={item.analysis?.businessConcept?.description || 'No description available.'}
                 createdAt={item.createdAt}
                 />
             ))}
