@@ -1,7 +1,7 @@
 // Components/layout/RoadmapSummaryView.jsx
 
 import React from 'react';
-import RoadmapCard from '@/Components/features/RoadmapCard';
+import RoadmapCard from '../features/RoadmapCard';
 
 const RoadmapSummaryView = ({ onSelect, roadmapData }) => {
   return (

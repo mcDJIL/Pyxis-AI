@@ -1,11 +1,11 @@
 import React, { useRef } from 'react';
-import ExecutiveSummary from '@/components/features/ExecutiveSummary';
-import StrategicMatrix from '@/components/features/StrategicMatrix';
-import VerticalRoadmapContainer from '@/Components/layout/RoadmapPage';
-import { useAnalysisStore } from '@/Store/AnalysisStore'
+import ExecutiveSummary from '../Components/features/ExecutiveSummary';
+import StrategicMatrix from '../Components/features/StrategicMatrix';
+import VerticalRoadmapContainer from '../Components/layout/RoadmapPage';
+import { useAnalysisStore } from '../Store/AnalysisStore'
 
 import { FileText, Download } from 'lucide-react'; 
-import ProspectCard from '@/Components/features/ProspectCard';
+import ProspectCard from '../Components/features/ProspectCard';
 import { useParams } from 'react-router-dom';
 import { toPng } from 'html-to-image'
 import jsPDF from 'jspdf'
