@@ -45,8 +45,12 @@ export default function HomePage() {
             } else {
                 setAnalysis(data.analysis)
                 console.log('Analysis Result:', data.analysis)
+                console.log('Full Response:', data)
 
                 const newId = useAnalysisStore.getState().currentAnalysisId
+                const latestAnalysis = useAnalysisStore.getState().getLatestAnalysis()
+                console.log('Saved to Store:', latestAnalysis)
+
                 toast.success('Analysis completed successfully!')
                 navigate(`/dashboard/${newId}`)
             }
