@@ -18,11 +18,10 @@ const ExecutiveSummary = ({ title, icon, content }) => {
 
       {/* Bagian Konten: Render paragraf secara dinamis */}
       <div className="flex flex-col gap-4 text-sm text-gray-600 leading-relaxed">
-        {content.map((paragraph, index) => (
-          <p key={index}>
-            {paragraph}
-          </p>
-        ))}
+        {content.map((paragraph, index) => {
+          const paragraphText = typeof paragraph === 'string' ? paragraph : typeof paragraph === 'object' && paragraph?.description ? paragraph.description : String(paragraph)
+          return <p key={index}>{paragraphText}</p>
+        })}
       </div>
       
     </div>

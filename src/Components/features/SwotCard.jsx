@@ -51,49 +51,9 @@ const SwotCard = ({
 
       {/* First 3 Items */}
       <ul className="flex flex-col gap-3">
-        {items.slice(0, 3).map((item, index) => (
-          <li
-            key={index}
-            className="
-              flex items-start
-              gap-3
-              text-sm
-              text-gray-600
-            "
-          >
-            <span
-              className={`mt-1.5 text-[10px] ${textColor}`}
-            >
-              {themeColor === 'green'
-                ? '✔'
-                : themeColor === 'red'
-                ? '!'
-                : '—'}
-            </span>
-
-            <span className="leading-relaxed">
-              {item}
-            </span>
-          </li>
-        ))}
-      </ul>
-
-      {/* Expand Area */}
-      <div
-        className={`
-          overflow-hidden
-          transition-all
-          duration-500
-          ease-in-out
-          ${
-            expanded
-              ? 'max-h-[500px] opacity-100 mt-3'
-              : 'max-h-0 opacity-0'
-          }
-        `}
-      >
-        <ul className="flex flex-col gap-3">
-          {items.slice(3).map((item, index) => (
+        {items.slice(0, 3).map((item, index) => {
+          const itemText = typeof item === 'string' ? item : typeof item === 'object' && item?.description ? item.description : String(item)
+          return (
             <li
               key={index}
               className="
@@ -114,10 +74,56 @@ const SwotCard = ({
               </span>
 
               <span className="leading-relaxed">
-                {item}
+                {itemText}
               </span>
             </li>
-          ))}
+          )
+        })}
+      </ul>
+
+      {/* Expand Area */}
+      <div
+        className={`
+          overflow-hidden
+          transition-all
+          duration-500
+          ease-in-out
+          ${
+            expanded
+              ? 'max-h-[500px] opacity-100 mt-3'
+              : 'max-h-0 opacity-0'
+          }
+        `}
+      >
+        <ul className="flex flex-col gap-3">
+          {items.slice(3).map((item, index) => {
+            const itemText = typeof item === 'string' ? item : typeof item === 'object' && item?.description ? item.description : String(item)
+            return (
+              <li
+                key={index}
+                className="
+                  flex items-start
+                  gap-3
+                  text-sm
+                  text-gray-600
+                "
+              >
+                <span
+                  className={`mt-1.5 text-[10px] ${textColor}`}
+                >
+                  {themeColor === 'green'
+                    ? '✔'
+                    : themeColor === 'red'
+                    ? '!'
+                    : '—'}
+                </span>
+
+                <span className="leading-relaxed">
+                  {itemText}
+                </span>
+              </li>
+            )
+          })}
         </ul>
       </div>
 

@@ -45,9 +45,10 @@ const DetailedRoadmapView = ({ data }) => {
         </h3>
         
         <div className="flex flex-col gap-5 text-base text-gray-800 leading-relaxed">
-          {detailedContent.map((point, index) => (
-            <p key={index} className="leading-relaxed">{point}</p>
-          ))}
+          {detailedContent.map((point, index) => {
+            const pointText = typeof point === 'string' ? point : typeof point === 'object' && point?.description ? point.description : String(point)
+            return <p key={index} className="leading-relaxed">{pointText}</p>
+          })}
         </div>
         
       </div>
