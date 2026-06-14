@@ -2,6 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import { GoogleGenAI } from '@google/genai'
+import OpenAI from 'openai';
 
 import { analyzeBusiness } from './Services/analyzeBusiness.js'
 
@@ -12,9 +13,10 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-const ai = new GoogleGenAI({
-  apiKey: process.env.GEMINI_API_KEY,
-})
+const ai = new OpenAI({
+  apiKey: process.env.SUMOPOD_KEY,
+  baseURL: 'https://ai.sumopod.com/v1'
+});
 
 app.get('/', (req, res) => {
   res.send('Business AI Backend Running 🚀')
