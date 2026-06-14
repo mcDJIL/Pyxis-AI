@@ -10,9 +10,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@google/genai": "^2.8.0",
     "@tailwindcss/vite": "^4.3.1",
+    "axios": "^1.17.0",
     "clsx": "^2.1.1",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
     "lucide-react": "^1.18.0",
+    "openai": "^6.42.0",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "react-hot-toast": "^2.6.0",
@@ -30,6 +36,20 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.6.0",
+    "nodemon": "^3.1.14",
     "vite": "^8.0.12"
-  }
+  },
+  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcDJIL/Pyxis-AI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mcDJIL/Pyxis-AI/issues"
+  },
+  "homepage": "https://github.com/mcDJIL/Pyxis-AI#readme"
 }
