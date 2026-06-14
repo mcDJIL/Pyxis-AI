@@ -25,7 +25,7 @@ export default function HomePage() {
             setCurrentIdea(prompt)
 
             const response = await fetch(
-                'https://pyxiss-ai.vercel.app/api/analyze-business',
+                '/api/analyze-business',
                 {
                     method: 'POST',
                     headers: {
