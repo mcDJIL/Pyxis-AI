@@ -58,8 +58,9 @@ const DashboardPage = () => {
           content={analysis.analysis.analysis.roadmap}
         />
 
-        <ProspectCard 
+        <ProspectCard
           prospect={analysis.analysis.analysis.prospect}
+          businessName={analysis.analysis.analysis.businessConcept.businessName}
         />
 
       </div>
