@@ -221,7 +221,7 @@ export default function SettingsPage() {
                 <button
                   onClick={() => setShowDeleteConfirm(true)}
                   disabled={history.length === 0}
-                  className="flex items-center justify-center gap-2 w-full px-6 py-3 border border-red-700 rounded-xl text-sm font-semibold tracking-wide text-red-700 bg-transparent cursor-pointer transition-colors hover:bg-red-700 hover:bg-opacity-5 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex items-center justify-center gap-2 w-full px-6 py-3 border border-red-700 rounded-xl text-sm font-semibold tracking-wide text-red-700 bg-transparent cursor-pointer transition-colors hover:bg-red-700 hover:bg-opacity-5 disabled:opacity-50 disabled:cursor-not-allowed hover:text-white"
                 >
                   <Trash2 size={14} />
                   Clear History
@@ -248,7 +248,7 @@ export default function SettingsPage() {
                 )}
               </button>
               <button
-                className="flex items-center justify-center gap-2 w-full px-6 py-3.5 border border-gray-300 rounded-xl text-sm font-semibold tracking-wide text-black bg-transparent cursor-pointer transition-colors hover:bg-black hover:bg-opacity-3"
+                className="flex items-center justify-center gap-2 w-full px-6 py-3.5 border border-gray-300 rounded-xl text-sm font-semibold tracking-wide text-black bg-transparent cursor-pointer transition-colors hover:bg-black hover:bg-opacity-3 hover:text-white"
                 onClick={handleReset}
               >
                 <RotateCcw size={14} />

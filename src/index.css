@@ -64,3 +64,241 @@
 .box-prompt textarea::placeholder {
   color: #000;
 }
+
+/* ── Business Prospects / ProspectCard ─────────────────────────── */
+.prospect-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.prospect-section-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px;
+  margin-bottom: 24px;
+}
+
+.prospect-section-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #000;
+  line-height: 1.4;
+}
+
+.prospect-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 32px;
+  width: 100%;
+}
+
+.prospect-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.prospect-analysis-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+  color: #000;
+  line-height: 1.14;
+}
+
+.prospect-potential-badge {
+  font-family: Inter, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #006947;
+  letter-spacing: 0.78px;
+  background: rgba(0, 133, 91, 0.10);
+  border: 1.3px solid rgba(0, 105, 71, 0.20);
+  border-radius: 5px;
+  padding: 5px 12px;
+  white-space: nowrap;
+}
+
+.prospect-card-body {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.prospect-left-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.prospect-score-ring {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 20px solid #004493;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.prospect-score-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.prospect-score-number {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 56px;
+  font-weight: 600;
+  color: #000;
+  letter-spacing: -4px;
+  line-height: 1;
+}
+
+.prospect-score-out-of {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #000;
+  letter-spacing: 0;
+}
+
+.prospect-divider {
+  align-self: stretch;
+  width: 1px;
+  background: #000;
+  opacity: 0.15;
+  flex-shrink: 0;
+}
+
+.prospect-right-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.prospect-insight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 12px 16px;
+}
+
+.prospect-insight-icon {
+  color: #3980F4;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.prospect-insight-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.prospect-insight-title {
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #131B2E;
+  line-height: 1.5;
+}
+
+.prospect-insight-desc {
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #414754;
+  line-height: 1.625;
+}
+
+.prospect-legacy-desc {
+  font-family: Inter, sans-serif;
+  font-size: 15px;
+  color: #414754;
+  line-height: 1.6;
+  padding: 12px;
+}
+
+.prospect-export-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.prospect-export-btn {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+  background: #005BC0;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 28px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.prospect-export-btn:hover {
+  background: #004493;
+}
+
+/* Responsive ── tablet */
+@media (max-width: 900px) {
+  .prospect-card-body {
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .prospect-divider {
+    width: 100%;
+    height: 1px;
+    align-self: auto;
+  }
+
+  .prospect-right-panel {
+    width: 100%;
+  }
+}
+
+/* Responsive ── mobile */
+@media (max-width: 480px) {
+  .prospect-card {
+    padding: 20px 16px;
+  }
+
+  .prospect-analysis-title {
+    font-size: 22px;
+  }
+
+  .prospect-score-ring {
+    width: 160px;
+    height: 160px;
+    border-width: 16px;
+  }
+
+  .prospect-score-number {
+    font-size: 44px;
+    letter-spacing: -3px;
+  }
+
+  .prospect-card-top {
+    margin-bottom: 20px;
+  }
+}

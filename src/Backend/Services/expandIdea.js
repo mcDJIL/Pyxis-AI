@@ -10,6 +10,7 @@ export async function expandIdea(ai, userIdea, settings = {}) {
       'French': 'French',
       'German': 'German',
       'Japanese': 'Japanese',
+      'Korean': 'Korean',
       'Chinese (Simplified)': 'Simplified Chinese',
     }
 

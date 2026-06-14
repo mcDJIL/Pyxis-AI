@@ -5,7 +5,7 @@ import { GoogleGenAI } from '@google/genai'
 
 import { analyzeBusiness } from './Services/analyzeBusiness.js'
 
-dotenv.config()
+dotenv.config({ path: '../../.env' })
 
 const app = express()
 

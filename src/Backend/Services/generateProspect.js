@@ -14,6 +14,7 @@ export async function generateProspect(
     'French': 'French',
     'German': 'German',
     'Japanese': 'Japanese',
+    'Korean': 'Korean',
     'Chinese (Simplified)': 'Simplified Chinese',
   }
 
@@ -25,8 +26,7 @@ Analisis prospek bisnis berikut:
 
 ${JSON.stringify(businessConcept)}
 
-Berikan skor berdasarkan:
-
+Berikan skor (skala 0-10) berdasarkan:
 - Market Demand
 - Scalability
 - Competition
@@ -37,9 +37,31 @@ Respond dalam bahasa ${outputLanguage}.${globalContext}
 Output JSON:
 
 {
-  "score": 0,
-  "description": ""
+  "score": 8.5,
+  "label": "High Potential",
+  "insights": [
+    {
+      "id": "growth",
+      "title": "Growth Opportunities",
+      "description": "..."
+    },
+    {
+      "id": "scalability",
+      "title": "Market Scalability",
+      "description": "..."
+    },
+    {
+      "id": "competitive",
+      "title": "Competitive Advantage",
+      "description": "..."
+    }
+  ]
 }
+
+Catatan:
+- "score" adalah angka desimal antara 0 hingga 10
+- "label" bisa berupa: "High Potential", "Medium Potential", atau "Low Potential"
+- Setiap insight harus memiliki deskripsi 2-3 kalimat yang spesifik dan relevan
 `
 
   const response = await ai.models.generateContent({

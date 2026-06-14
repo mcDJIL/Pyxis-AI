@@ -14,6 +14,7 @@ export async function generateSummary(
     'French': 'French',
     'German': 'German',
     'Japanese': 'Japanese',
+    'Korean': 'Korean',
     'Chinese (Simplified)': 'Simplified Chinese',
   }
 
