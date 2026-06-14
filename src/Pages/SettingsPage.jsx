@@ -22,6 +22,7 @@ const LANGUAGES = [
   'French',
   'German',
   'Japanese',
+  'Korean',
   'Chinese (Simplified)',
 ]
 

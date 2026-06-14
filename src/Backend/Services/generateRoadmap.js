@@ -48,7 +48,7 @@ Output JSON:
     summaryText: '',
     detailedTitle: '',
     themeColor: '',
-    position: 'left or right',
+    position: '',
     detailedContent: [
       'Proprietary NLP engine reduces integration time by 40% in initial tests.',
       'High net dollar retention (124%) among enterprise cohorts validates mid-market focus.',
@@ -60,7 +60,7 @@ Output JSON:
 
   const response = await ai.models.generateContent({
     model: process.env.MODEL,
-    contents: prompt,
+    contents: [{ text: prompt }],
   })
 
   return cleanJson(response.text)

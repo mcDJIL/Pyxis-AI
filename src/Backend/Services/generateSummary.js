@@ -47,7 +47,7 @@ Output JSON:
 
   const response = await ai.models.generateContent({
     model: process.env.MODEL,
-    contents: prompt,
+    contents: [{ text: prompt }],
   })
 
   return cleanJson(response.text)
