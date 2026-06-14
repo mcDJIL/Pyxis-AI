@@ -30,7 +30,7 @@ const DashboardPage = () => {
 
   return (
     // Wrapper utama untuk keseluruhan halaman dashboard
-    <div className="p-8 bg-gray-50 min-h-screen">
+    <div className="p-8 bg-gray-50 min-h-screen dashboard-content">
       <div className="max-w-6xl mx-auto flex flex-col gap-2">
 
         <div className="mb-12">
