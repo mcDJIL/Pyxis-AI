@@ -43,17 +43,17 @@ Berikan respons HANYA sebagai valid JSON (tanpa markdown, tanpa penjelasan):
     {
       "id": "growth",
       "title": "Growth Opportunities",
-      "description": "Deskripsi spesifik tentang peluang pertumbuhan yang dapat dicapai. Jelaskan pasar target, segmen pelanggan potensial, dan strategi penetrasi pasar. 2-3 kalimat yang relevan dan actionable."
+      "description": "Deskripsi singkat tentang peluang pertumbuhan yang dapat dicapai. Jelaskan pasar target, segmen pelanggan potensial, dan strategi penetrasi pasar. 2 kalimat yang relevan, actionable, dan singkat padat."
     },
     {
       "id": "scalability",
       "title": "Market Scalability",
-      "description": "Analisis kemampuan bisnis untuk scale. Bagaimana sistem dapat berkembang dengan pertumbuhan? Apa saja bottleneck potensial? Jelaskan infrastruktur dan resources yang diperlukan. 2-3 kalimat terperinci."
+      "description": "Analisis singkat kemampuan bisnis untuk scale. Bagaimana sistem dapat berkembang dengan pertumbuhan? Apa saja bottleneck potensial? Jelaskan infrastruktur dan resources yang diperlukan. 2 kalimat relevan dan singkat padat."
     },
     {
       "id": "competitive",
       "title": "Competitive Advantage",
-      "description": "Identifikasi keunggulan kompetitif utama dibandingkan pesaing. Apa yang membuat bisnis ini unique? Bagaimana mempertahankan posisi di pasar? Jelaskan value proposition yang jelas. 2-3 kalimat spesifik."
+      "description": "Identifikasi singkat keunggulan kompetitif utama dibandingkan pesaing. Apa yang membuat bisnis ini unique? Bagaimana mempertahankan posisi di pasar? Jelaskan value proposition yang jelas. 2 kalimat spesifik dan singkat padat."
     }
   ]
 }

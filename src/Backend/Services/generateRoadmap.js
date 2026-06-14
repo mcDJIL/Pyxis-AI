@@ -18,6 +18,18 @@ export async function generateRoadmap(
     'Chinese (Simplified)': 'Simplified Chinese',
   }
 
+  // Quarter names untuk setiap bahasa
+  const quarterNames = {
+    'English (US)': ['Quarter 1', 'Quarter 2', 'Quarter 3', 'Quarter 4'],
+    'Indonesian': ['Kuartal 1', 'Kuartal 2', 'Kuartal 3', 'Kuartal 4'],
+    'Spanish': ['Trimestre 1', 'Trimestre 2', 'Trimestre 3', 'Trimestre 4'],
+    'French': ['Trimestre 1', 'Trimestre 2', 'Trimestre 3', 'Trimestre 4'],
+    'German': ['Quartal 1', 'Quartal 2', 'Quartal 3', 'Quartal 4'],
+    'Japanese': ['第1四半期', '第2四半期', '第3四半期', '第4四半期'],
+    'Korean': ['1분기', '2분기', '3분기', '4분기'],
+    'Chinese (Simplified)': ['第一季度', '第二季度', '第三季度', '第四季度'],
+  }
+
   const depthMap = {
     0: 'Keep roadmap items concise and high-level (1-2 points per quarter)',
     1: 'Provide detailed roadmap with 3-5 action items per quarter',
@@ -25,8 +37,25 @@ export async function generateRoadmap(
   }
 
   const outputLanguage = languageMap[language] || 'English'
+  const quarterLabels = quarterNames[language] || quarterNames['English (US)']
   const depthInstruction = depthMap[financialDepth] || depthMap[1]
   const globalContext = globalInstruction ? `\n\nKepatuhan terhadap context berikut:\n${globalInstruction}` : ''
+
+  // Generate quarter objects untuk dijadikan contoh
+  const quarterExamples = quarterLabels.map((quarter, index) => ({
+    id: `q${index + 1}`,
+    quarter: quarter,
+    position: index % 2 === 0 ? 'left' : 'right', // Alternating LEFT-RIGHT
+    summaryTitle: '',
+    summaryText: '',
+    detailedTitle: '',
+    themeColor: '',
+    detailedContent: [
+      'Example achievement or milestone',
+      'Key metric or validation point',
+      'Strategic focus area or outcome',
+    ]
+  }))
 
   const prompt = `
 Buat roadmap bisnis selama 1 tahun dan dibagi menjadi 4 kuartal.
@@ -39,30 +68,16 @@ Bisnis:
 
 ${JSON.stringify(businessConcept)}
 
-Output JSON:
+Output JSON (PENTING: Gunakan quarter names yang benar untuk bahasa ${language} dan position harus alternating LEFT-RIGHT):
 
-[
-  {
-    id: 'q1',
-    quarter: 'Kuartal 1',
-    summaryTitle: '',
-    summaryText: '',
-    detailedTitle: '',
-    themeColor: '',
-    position: '',
-    detailedContent: [
-      'Proprietary NLP engine reduces integration time by 40% in initial tests.',
-      'High net dollar retention (124%) among enterprise cohorts validates mid-market focus.',
-      'Short-term liquidity risk was partially mitigated by aggressive cash management strategies.',
-    ]
-  },
-]
+${JSON.stringify(quarterExamples, null, 2)}
 `
 
-  const response = await ai.models.generateContent({
-    model: process.env.MODEL,
-    contents: [{ text: prompt }],
+  const response = await ai.chat.completions.create({
+    model: process.env.MODEL || 'gpt-4-turbo',
+    messages: [{ role: 'user', content: prompt }],
+    temperature: 0.7,
   })
 
-  return cleanJson(response.text)
+  return cleanJson(response.choices[0].message.content)
 }
