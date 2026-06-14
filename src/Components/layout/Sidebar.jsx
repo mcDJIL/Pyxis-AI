@@ -160,13 +160,14 @@ export default function Sidebar() {
             </p>
 
             {history.slice(0, 4).map((item) => (
-              <div
+              <NavLink
+                to={`dashboard/${item.id}`}
                 key={item.id}
                 className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs text-text-muted hover:text-text-secondary hover:bg-surface-elevated cursor-pointer transition-all"
               >
                 <div className="w-1.5 h-1.5 rounded-full bg-brand/60 shrink-0" />
-                <span className="truncate">{item.title}</span>
-              </div>
+                <span className="truncate">{item.idea}</span>
+              </NavLink>
             ))}
           </div>
         )}

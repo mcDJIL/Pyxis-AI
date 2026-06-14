@@ -1,14 +1,16 @@
 // src/components/roadmap/RoadmapDetailedViewContainer.jsx
 
 import React from 'react';
-import DetailedRoadmapView from '../features/DetailedRoadmapView';
+import DetailedRoadmapView from '../features/DetailedRoadmapCard';
 import RoadmapTimelineContainer from '../features/RoadmapTimelineContainer';
-import { roadmapData } from '@/Constants/roadmapData'; // Memanggil data terpadu
 
-const RoadmapDetailedViewContainer = ({ selectedId, onSelect }) => {
+const RoadmapDetailedViewContainer = ({ selectedId, onSelect, roadmapData }) => {
   
   // 1. Cari data spesifik kuartal yang sedang aktif berdasarkan ID yang dipilih
   const currentPhaseData = roadmapData.find((phase) => phase.id === selectedId);
+
+  console.log('Selected ID:', selectedId);
+  console.log('Current Phase Data:', currentPhaseData);
 
   // Safety guard: Jika ID tidak valid atau data tidak ditemukan, jangan render apa pun
   if (!currentPhaseData) {
@@ -40,7 +42,8 @@ const RoadmapDetailedViewContainer = ({ selectedId, onSelect }) => {
       <div className="w-full md:w-auto order-1 md:order-2 flex justify-center md:justify-start">
         <RoadmapTimelineContainer 
           activeId={selectedId} 
-          onSelect={onSelect} 
+          onSelect={onSelect}
+          roadmapData={roadmapData}
         />
       </div>
 

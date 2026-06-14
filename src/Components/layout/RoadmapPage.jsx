@@ -5,7 +5,7 @@ import RoadmapSummaryView from './RoadmapSummaryView';
 import RoadmapDetailedViewContainer from './RoadmapDetailedViewContainer';
 import { ArrowLeft, LayoutDashboard, Map } from 'lucide-react'; // Menggunakan ikon agar tombol back lebih elegan
 
-const RoadmapPage = () => {
+const RoadmapPage = ({ content }) => {
   const [selectedPhaseId, setSelectedPhaseId] = useState(null); 
 
   const handlePhaseSelect = (id) => {
@@ -15,6 +15,8 @@ const RoadmapPage = () => {
   const handleBackToSummary = () => {
     setSelectedPhaseId(null);
   };
+
+  console.log('Roadmap Content:', content);
 
   return (
     // 1. HAPUS p-8 dan background. Cukup gunakan w-full dan mt-4 (margin-top) 
@@ -48,18 +50,25 @@ const RoadmapPage = () => {
         
         {/* Area Konten Roadmap */}
         {/* Diberi min-h-[600px] agar layout absolut di dalamnya tidak membuat tinggi halaman menjadi 0 */}
-        <div className="relative w-full min-h-[600px]">
+        <div className="relative w-full min-h-[1100px]">
             
             {/* Tampilan Ringkasan Awal */}
             <div className={`absolute top-0 left-0 w-full transition-all duration-700 ease-in-out ${selectedPhaseId ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100'}`}>
-                <RoadmapSummaryView onSelect={handlePhaseSelect} />
+                <RoadmapSummaryView 
+                 onSelect={handlePhaseSelect} 
+                    roadmapData={content} 
+                />
             </div>
 
             {/* Tampilan Detail Fase */}
             <div className={`absolute top-0 left-0 w-full transition-all duration-700 ease-in-out ${selectedPhaseId ? 'opacity-100 scale-100' : 'opacity-0 scale-105 pointer-events-none'}`}>
                 {/* Pastikan komponen hanya dirender saat ada ID untuk menghindari error pencarian data */}
                 {selectedPhaseId && (
-                   <RoadmapDetailedViewContainer selectedId={selectedPhaseId} onSelect={handlePhaseSelect} />
+                   <RoadmapDetailedViewContainer 
+                    selectedId={selectedPhaseId} 
+                    onSelect={handlePhaseSelect} 
+                    roadmapData={content} 
+                   />
                 )}
             </div>
 

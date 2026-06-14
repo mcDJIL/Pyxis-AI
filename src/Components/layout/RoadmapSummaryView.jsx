@@ -2,9 +2,8 @@
 
 import React from 'react';
 import RoadmapCard from '@/Components/features/RoadmapCard';
-import { roadmapData } from '@/Constants/roadmapData'; 
 
-const RoadmapSummaryView = ({ onSelect }) => {
+const RoadmapSummaryView = ({ onSelect, roadmapData }) => {
   return (
     // Membuang overflow-hidden agar bayangan (shadow) tidak terpotong
     <div className="relative mt-8 w-full px-4 md:px-0">

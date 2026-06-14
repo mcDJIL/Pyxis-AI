@@ -2,17 +2,31 @@ import React from 'react';
 import ExecutiveSummary from '@/components/features/ExecutiveSummary';
 import StrategicMatrix from '@/components/features/StrategicMatrix';
 import VerticalRoadmapContainer from '@/Components/layout/RoadmapPage';
+import { useAnalysisStore } from '@/Store/AnalysisStore'
 
 // Asumsi menggunakan Lucide React untuk ikon
 import { FileText } from 'lucide-react'; 
+import ProspectCard from '@/Components/features/ProspectCard';
+import { useParams } from 'react-router-dom';
 
 const DashboardPage = () => {
-  // Data teks untuk Executive Summary
-  // Disimpan dalam bentuk array agar komponen tahu cara memisahkan paragrafnya
-  const summaryContent = [
-    "Project Alpha is positioned to capture a significant share of the mid-market enterprise SaaS segment. Core competencies in AI-driven workflow automation provide a distinct moat. However, short-term liquidity and aggressive competitor pricing present material risks heading into Q3.",
-    "The primary growth vector remains organic expansion within the existing user base, augmented by targeted outbound sales campaigns prioritizing high-LTV sectors."
-  ];
+  const { id } = useParams();
+
+  console.log(id);
+
+  const analysis = useAnalysisStore(
+        state => state.getAnalysisById(id)
+    )
+
+    if (!analysis) {
+        return (
+            <div className="p-10">
+                No analysis found
+            </div>
+        )
+    } else {
+        console.log(analysis)
+    }
 
   return (
     // Wrapper utama untuk keseluruhan halaman dashboard
@@ -21,25 +35,32 @@ const DashboardPage = () => {
 
         <div className="mb-12">
           <h1 className="text-3xl font-bold text-gray-800">
-            Your Business Idea
+            {analysis.analysis.analysis.businessConcept.businessName}
           </h1>
           <p className="text-gray-600 mt-1">
-            Here's a comprehensive analysis of your business concept, covering market potential, competitive landscape, and strategic recommendations.
-          </p>
+            {analysis.analysis.analysis.summary.title}</p>
         </div>
         
         {/* 1. Memanggil Komponen Executive Summary */}
         <ExecutiveSummary 
           title="Executive Summary"
           icon={<FileText size={22} />}
-          content={summaryContent}
+          content={analysis.analysis.analysis.summary.content}
         />
 
         {/* 2. Memanggil Komponen Strategic Matrix */}
-        <StrategicMatrix />
+        <StrategicMatrix
+          content={analysis.analysis.analysis.swot}
+        />
 
         {/* 3. Memanggil Komponen Roadmap Vertikal */}
-        <VerticalRoadmapContainer />
+        <VerticalRoadmapContainer
+          content={analysis.analysis.analysis.roadmap}
+        />
+
+        <ProspectCard 
+          prospect={analysis.analysis.analysis.prospect}
+        />
 
       </div>
     </div>

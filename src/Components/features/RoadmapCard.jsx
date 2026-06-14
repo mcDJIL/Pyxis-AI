@@ -4,7 +4,7 @@ import React from 'react';
 
 // Prop 'position' dihapus karena penempatan kiri/kanan diatur oleh komponen induk
 const RoadmapCard = ({ data, onClick }) => {
-  const { title, themeColor, summaryText } = data; 
+  const { summaryTitle, themeColor, summaryText } = data; 
 
   const colorMap = {
     red: "border-pink-500",
@@ -22,7 +22,7 @@ const RoadmapCard = ({ data, onClick }) => {
       className={`p-6 bg-white border-2 ${activeColorClass} rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 ease-in-out cursor-pointer hover:-translate-y-1 w-full max-w-md`}
     >
       <div className="flex flex-col gap-3">
-        <h3 className={`text-base font-semibold text-slate-800`}>{title}</h3>
+        <h3 className={`text-base font-semibold text-slate-800`}>{summaryTitle}</h3>
         
         <p className="text-sm text-slate-600 leading-relaxed line-clamp-3">
           {summaryText || "Klik untuk melihat analisis detail..."}

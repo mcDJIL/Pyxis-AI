@@ -49,6 +49,11 @@ export const useAnalysisStore = create(
       apiKey: '',
 
       // ─── Actions ───────────────────────────────────────────────────
+      getAnalysisById: (id) => {
+        const { history } = get()
+        return history.find(item => item.id === id) || null
+      },
+
       setCurrentIdea: (text) => set({ currentIdea: text }),
       setCurrentAnalysisId: (id) => set({ currentAnalysisId: id }),
 

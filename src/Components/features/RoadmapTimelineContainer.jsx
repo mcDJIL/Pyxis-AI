@@ -1,10 +1,8 @@
 // Components/features/RoadmapTimelineContainer.jsx
 
 import React from 'react';
-// 1. Ubah import untuk menggunakan data terpadu yang ada di folder Constants Anda
-import { roadmapData } from '@/Constants/roadmapData'; 
 
-const RoadmapTimelineContainer = ({ activeId, onSelect }) => {
+const RoadmapTimelineContainer = ({ activeId, onSelect, roadmapData }) => {
   return (
     <div className="relative flex flex-col items-center gap-12">
       
