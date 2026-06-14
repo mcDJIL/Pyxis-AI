@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Sparkles, ArrowUp } from 'lucide-react'
+import toast from 'react-hot-toast'
 import { useAnalysisStore } from '../Store/AnalysisStore'
 import { useNavigate } from 'react-router-dom'
 
@@ -13,6 +14,7 @@ export default function HomePage() {
         setCurrentIdea,
         setAnalysis,
         setError,
+        settings,
     } = useAnalysisStore()
 
     const handleSubmit = async () => {
@@ -31,6 +33,7 @@ export default function HomePage() {
                     },
                     body: JSON.stringify({
                         idea: prompt,
+                        settings,
                     }),
                 }
             )
@@ -44,10 +47,13 @@ export default function HomePage() {
                 console.log('Analysis Result:', data)
 
                 const newId = useAnalysisStore.getState().currentAnalysisId
+                toast.success('Analysis completed successfully!')
                 navigate(`/dashboard/${newId}`)
             }
         } catch (error) {
-            setError(error.message)
+            const errorMessage = error.message || 'Failed to analyze business idea'
+            setError(errorMessage)
+            toast.error(errorMessage)
             console.log(error)
         } finally {
             setLoading(false)

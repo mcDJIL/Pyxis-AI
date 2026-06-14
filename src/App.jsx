@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Toaster } from 'react-hot-toast'
 import AppLayout from './Components/layout/AppLayout'
 import HomePage from './Pages/HomePage'
 import DashboardPage from './Pages/DashboardPage'
@@ -8,6 +9,7 @@ import SettingsPage from './Pages/SettingsPage'
 export default function App() {
   return (
     <BrowserRouter>
+      <Toaster position="top-right" />
       <Routes>
         <Route path="/" element={<AppLayout />}>
           <Route index element={<HomePage />} />
