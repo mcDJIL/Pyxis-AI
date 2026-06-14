@@ -14,19 +14,26 @@ const DashboardPage = () => {
 
   console.log(id);
 
-  const analysis = useAnalysisStore(
+  const analysisItem = useAnalysisStore(
         state => state.getAnalysisById(id)
     )
 
-    if (!analysis) {
-        return (
-            <div className="p-10">
-                No analysis found
-            </div>
-        )
-    } else {
-        console.log(analysis)
-    }
+  const analysis = analysisItem?.analysis
+
+  if (!analysis) {
+    return (
+      <div className="p-10">
+        No analysis found
+      </div>
+    )
+  }
+
+  const businessName = analysis?.businessConcept?.businessName || 'Business Analysis'
+  const summaryTitle = analysis?.summary?.title || 'Analysis Summary'
+  const summaryContent = analysis?.summary?.content
+  const swotData = analysis?.swot
+  const roadmapData = analysis?.roadmap
+  const prospectData = analysis?.prospect
 
   return (
     // Wrapper utama untuk keseluruhan halaman dashboard
@@ -35,33 +42,41 @@ const DashboardPage = () => {
 
         <div className="mb-12">
           <h1 className="text-3xl font-bold text-gray-800">
-            {analysis.analysis.businessConcept.businessName}
+            {businessName}
           </h1>
           <p className="text-gray-600 mt-1">
-            {analysis.analysis.summary.title}</p>
+            {summaryTitle}</p>
         </div>
 
         {/* 1. Memanggil Komponen Executive Summary */}
-        <ExecutiveSummary
-          title="Executive Summary"
-          icon={<FileText size={22} />}
-          content={analysis.analysis.summary.content}
-        />
+        {summaryContent && (
+          <ExecutiveSummary
+            title="Executive Summary"
+            icon={<FileText size={22} />}
+            content={summaryContent}
+          />
+        )}
 
         {/* 2. Memanggil Komponen Strategic Matrix */}
-        <StrategicMatrix
-          content={analysis.analysis.swot}
-        />
+        {swotData && (
+          <StrategicMatrix
+            content={swotData}
+          />
+        )}
 
         {/* 3. Memanggil Komponen Roadmap Vertikal */}
-        <VerticalRoadmapContainer
-          content={analysis.analysis.roadmap}
-        />
+        {roadmapData && (
+          <VerticalRoadmapContainer
+            content={roadmapData}
+          />
+        )}
 
-        <ProspectCard
-          prospect={analysis.analysis.prospect}
-          businessName={analysis.analysis.businessConcept.businessName}
-        />
+        {prospectData && (
+          <ProspectCard
+            prospect={prospectData}
+            businessName={businessName}
+          />
+        )}
 
       </div>
     </div>
