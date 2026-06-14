@@ -47,6 +47,12 @@ export const useAnalysisStore = create(
 
       // ─── Settings ──────────────────────────────────────────────────
       apiKey: '',
+      settings: {
+        globalInstruction: '',
+        swotDepth: 2,
+        financialDepth: 1,
+        language: 'English (US)',
+      },
 
       // ─── Actions ───────────────────────────────────────────────────
       getAnalysisById: (id) => {
@@ -136,6 +142,11 @@ export const useAnalysisStore = create(
               : item
           ),
         })),
+
+      setSetting: (key, value) =>
+        set((state) => ({
+          settings: { ...state.settings, [key]: value },
+        })),
     }),
     {
       name: 'pyxis-store',
@@ -143,6 +154,7 @@ export const useAnalysisStore = create(
       partialize: (state) => ({
         history: state.history,
         apiKey: state.apiKey,
+        settings: state.settings,
 
         currentIdea: state.currentIdea,
         currentAnalysisId: state.currentAnalysisId,

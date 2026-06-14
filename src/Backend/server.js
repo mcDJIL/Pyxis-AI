@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 
 app.post('/api/analyze-business', async (req, res) => {
   try {
-    const { idea } = req.body
+    const { idea, settings = {} } = req.body
 
     if (!idea?.trim()) {
       return res.status(400).json({
@@ -34,11 +34,13 @@ app.post('/api/analyze-business', async (req, res) => {
     console.log('====================================')
     console.log('NEW ANALYSIS REQUEST')
     console.log('Idea:', idea)
+    console.log('Settings:', settings)
     console.log('====================================')
 
     const analysis = await analyzeBusiness(
       ai,
-      idea
+      idea,
+      settings
     )
 
     res.json({

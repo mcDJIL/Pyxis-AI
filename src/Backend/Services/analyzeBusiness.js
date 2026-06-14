@@ -6,10 +6,11 @@ import { generateProspect } from './generateProspect.js'
 
 export async function analyzeBusiness(
   ai,
-  userIdea
+  userIdea,
+  settings = {}
 ) {
   const businessConcept =
-    await expandIdea(ai, userIdea)
+    await expandIdea(ai, userIdea, settings)
 
   const [
     summary,
@@ -17,10 +18,10 @@ export async function analyzeBusiness(
     roadmap,
     prospect,
   ] = await Promise.all([
-    generateSummary(ai, businessConcept),
-    generateSwot(ai, businessConcept),
-    generateRoadmap(ai, businessConcept),
-    generateProspect(ai, businessConcept),
+    generateSummary(ai, businessConcept, settings),
+    generateSwot(ai, businessConcept, settings),
+    generateRoadmap(ai, businessConcept, settings),
+    generateProspect(ai, businessConcept, settings),
   ])
 
   return {

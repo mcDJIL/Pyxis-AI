@@ -8,7 +8,10 @@ import {
   Save,
   ChevronDown,
   RotateCcw,
+  AlertCircle,
+  Check,
 } from 'lucide-react'
+import { useAnalysisStore } from '../Store/AnalysisStore'
 
 const DEPTH_LABELS = ['Summary', 'Standard', 'Deep Dive']
 
@@ -72,9 +75,42 @@ function SectionCard({ icon: Icon, title, description, children }) {
 }
 
 export default function SettingsPage() {
-  const [config, setConfig] = useState(DEFAULT_CONFIG)
+  const settings = useAnalysisStore((state) => state.settings)
+  const setSetting = useAnalysisStore((state) => state.setSetting)
+  const clearHistory = useAnalysisStore((state) => state.clearHistory)
+  const history = useAnalysisStore((state) => state.history)
+
+  const [config, setConfig] = useState({
+    ...DEFAULT_CONFIG,
+    ...settings,
+  })
+
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
+  const [showSaved, setShowSaved] = useState(false)
 
   const set = (key, val) => setConfig((prev) => ({ ...prev, [key]: val }))
+
+  const handleSave = () => {
+    Object.keys(config).forEach((key) => {
+      setSetting(key, config[key])
+    })
+    setShowSaved(true)
+    setTimeout(() => setShowSaved(false), 2000)
+  }
+
+  const handleClearHistory = () => {
+    clearHistory()
+    setShowDeleteConfirm(false)
+  }
+
+  const handleReset = () => {
+    setConfig(DEFAULT_CONFIG)
+    Object.keys(DEFAULT_CONFIG).forEach((key) => {
+      setSetting(key, DEFAULT_CONFIG[key])
+    })
+    setShowSaved(true)
+    setTimeout(() => setShowSaved(false), 2000)
+  }
 
   return (
     <div className="min-h-full p-8">
@@ -87,8 +123,8 @@ export default function SettingsPage() {
           </p>
         </div>
 
-        {/* Bento Grid */}
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-10 lg:items-start">
+        {/* Bento Grid */}
           {/* ── Left Column ── */}
           <div className="flex flex-col gap-6 lg:col-span-2">
             {/* Global Strategy Instruction */}
@@ -154,23 +190,65 @@ export default function SettingsPage() {
             <SectionCard
               icon={Database}
               title="Data Management"
-              description="Manage your stored analysis data and local cache to free up space or remove old records."
+              description={`You have ${history.length} saved analysis records.`}
             >
-              <button className="flex items-center justify-center gap-2 w-full px-6 py-3 border border-red-700 rounded-xl text-sm font-semibold tracking-wide text-red-700 bg-transparent cursor-pointer transition-colors hover:bg-red-700 hover:bg-opacity-5 hover:text-white">
-                <Trash2 size={14} />
-                Clear History
-              </button>
+              {showDeleteConfirm ? (
+                <div className="flex flex-col gap-3 p-4 bg-red-50 border border-red-200 rounded-lg">
+                  <div className="flex items-start gap-2">
+                    <AlertCircle size={16} className="text-red-600 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <p className="text-sm font-semibold text-red-900">Delete all history?</p>
+                      <p className="text-xs text-red-700 mt-1">This action cannot be undone. All {history.length} analysis records will be permanently deleted.</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-2 pt-2">
+                    <button
+                      onClick={handleClearHistory}
+                      className="flex-1 px-3 py-2 bg-red-700 text-white text-xs font-semibold rounded-lg hover:bg-red-800 transition-colors"
+                    >
+                      Delete All
+                    </button>
+                    <button
+                      onClick={() => setShowDeleteConfirm(false)}
+                      className="flex-1 px-3 py-2 bg-white border border-red-200 text-red-700 text-xs font-semibold rounded-lg hover:bg-red-50 transition-colors"
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <button
+                  onClick={() => setShowDeleteConfirm(true)}
+                  disabled={history.length === 0}
+                  className="flex items-center justify-center gap-2 w-full px-6 py-3 border border-red-700 rounded-xl text-sm font-semibold tracking-wide text-red-700 bg-transparent cursor-pointer transition-colors hover:bg-red-700 hover:bg-opacity-5 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <Trash2 size={14} />
+                  Clear History
+                </button>
+              )}
             </SectionCard>
 
             {/* Action Buttons */}
             <div className="flex flex-col gap-3">
-              <button className="flex items-center justify-center gap-2 w-full px-6 py-3.5 border-none rounded-xl text-sm font-semibold tracking-wide text-white bg-gradient-to-r from-teal-600 to-teal-800 shadow-sm cursor-pointer transition-opacity hover:opacity-90">
-                <Save size={14} />
-                Save Configuration
+              <button
+                onClick={handleSave}
+                className="flex items-center justify-center gap-2 w-full px-6 py-3.5 border-none rounded-xl text-sm font-semibold tracking-wide text-white bg-gradient-to-r from-teal-600 to-teal-800 shadow-sm cursor-pointer transition-opacity hover:opacity-90 relative"
+              >
+                {showSaved ? (
+                  <>
+                    <Check size={14} />
+                    Settings Saved
+                  </>
+                ) : (
+                  <>
+                    <Save size={14} />
+                    Save Configuration
+                  </>
+                )}
               </button>
               <button
-                className="flex items-center justify-center gap-2 w-full px-6 py-3.5 border border-gray-300 rounded-xl text-sm font-semibold tracking-wide text-black bg-transparent cursor-pointer transition-colors hover:bg-black hover:bg-opacity-3 hover:text-white"
-                onClick={() => setConfig(DEFAULT_CONFIG)}
+                className="flex items-center justify-center gap-2 w-full px-6 py-3.5 border border-gray-300 rounded-xl text-sm font-semibold tracking-wide text-black bg-transparent cursor-pointer transition-colors hover:bg-black hover:bg-opacity-3"
+                onClick={handleReset}
               >
                 <RotateCcw size={14} />
                 Reset to Defaults
