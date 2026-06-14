@@ -50,8 +50,8 @@ const RoadmapPage = ({ content }) => {
         
         {/* Area Konten Roadmap */}
         {/* Diberi min-h-[600px] agar layout absolut di dalamnya tidak membuat tinggi halaman menjadi 0 */}
-        <div className="relative w-full min-h-[1100px]">
-            
+        <div className="relative w-full min-h-[1000px]">
+        0 
             {/* Tampilan Ringkasan Awal */}
             <div className={`absolute top-0 left-0 w-full transition-all duration-700 ease-in-out ${selectedPhaseId ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100'}`}>
                 <RoadmapSummaryView 

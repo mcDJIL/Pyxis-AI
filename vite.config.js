@@ -8,6 +8,9 @@ export default defineConfig({
     react(),
     tailwindcss()
   ],
+  future: {
+    disableColorOpacityUtilitiesByDefault: true,
+  },
   resolve: {
     alias: {
       // 2. Daftarkan '@' agar otomatis membaca folder 'src'

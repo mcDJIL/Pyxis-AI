@@ -1,5 +1,5 @@
 import { TrendingUp, BarChart2, Award, Map } from 'lucide-react'
-import html2canvas from 'html2canvas'
+import { toPng } from 'html-to-image'
 import jsPDF from 'jspdf'
 
 const INSIGHT_ICONS = {
@@ -36,49 +36,7 @@ export default function ProspectCard({ prospect, businessName }) {
   const score = prospect?.score ?? 0
   const label = prospect?.label ?? ''
   const insights = prospect?.insights ?? []
-
   const legacyDescription = prospect?.description
-
-  const handleExportPDF = async () => {
-    try {
-      const dashboardElement = document.querySelector('.dashboard-content') || document.body
-      const canvas = await html2canvas(dashboardElement, {
-        allowTaint: true,
-        useCORS: true,
-        logging: false,
-        scale: 2,
-      })
-
-      const imgData = canvas.toDataURL('image/png')
-      const pdf = new jsPDF({
-        orientation: 'portrait',
-        unit: 'mm',
-        format: 'a4',
-      })
-
-      const pageWidth = pdf.internal.pageSize.getWidth()
-      const pageHeight = pdf.internal.pageSize.getHeight()
-      const imgWidth = pageWidth - 20
-      const imgHeight = (canvas.height * imgWidth) / canvas.width
-
-      let heightLeft = imgHeight
-      let position = 10
-
-      pdf.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight)
-      heightLeft -= pageHeight - 20
-
-      while (heightLeft > 0) {
-        position = heightLeft - imgHeight + 10
-        pdf.addPage()
-        pdf.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight)
-        heightLeft -= pageHeight - 20
-      }
-
-      pdf.save(`${businessName || 'business'}-analysis.pdf`)
-    } catch (error) {
-      console.error('Error generating PDF:', error)
-    }
-  }
 
   return (
     <section className="prospect-section">
@@ -112,10 +70,6 @@ export default function ProspectCard({ prospect, businessName }) {
             ) : null}
           </div>
         </div>
-      </div>
-
-      <div className="prospect-export-row">
-        <button className="prospect-export-btn" onClick={handleExportPDF}>Export to PDF</button>
       </div>
     </section>
   )
