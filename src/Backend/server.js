@@ -1,16 +1,23 @@
 import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
-import { GoogleGenAI } from '@google/genai'
 import OpenAI from 'openai';
 
 import { analyzeBusiness } from './Services/analyzeBusiness.js'
 
-dotenv.config({ path: '../../.env' })
+dotenv.config()
 
 const app = express()
 
-app.use(cors())
+const corsOptions = {
+  origin: [
+    'http://localhost:3000',
+    process.env.FRONTEND_URL || '*',
+  ],
+  credentials: true,
+}
+
+app.use(cors(corsOptions))
 app.use(express.json())
 
 const ai = new OpenAI({
