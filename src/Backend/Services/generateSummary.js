@@ -25,14 +25,22 @@ Berdasarkan konsep bisnis berikut:
 
 ${JSON.stringify(businessConcept)}
 
-Buat Executive Summary profesional dalam bahasa ${outputLanguage}.${globalContext}
+Buat Executive Summary profesional dalam bahasa ${outputLanguage}.
+
+PENTING:
+- JANGAN gunakan markdown headers (###, ##, #)
+- JANGAN gunakan bullet points (•, -, *)
+- Struktur sebagai array of plain text paragraphs
+${globalContext}
 
 Output JSON:
 
 {
-  "title": "",
+  "title": "Business Executive Summary",
   "content": [
-    "Pyxis AI is an innovative Visual Business Engine designed to transform raw business ideas into interactive AI-driven analytics dashboards. By leveraging advanced natural language processing and data visualization techniques, Pyxis AI empowers entrepreneurs and business professionals to quickly validate, analyze, and iterate on their concepts. The platform offers a seamless user experience, allowing users to input their business ideas in natural language and receive comprehensive insights, market analysis, and strategic recommendations in return. With its cutting-edge technology and user-centric design, Pyxis AI aims to revolutionize the way businesses develop and refine their strategies in a rapidly evolving market landscape."
+    "First paragraph summarizing the business concept and value proposition in plain text without any markdown or special formatting.",
+    "Second paragraph with key metrics and financial projections in plain text format.",
+    "Third paragraph with action plan and execution strategy in plain text format."
   ]
 }
 `

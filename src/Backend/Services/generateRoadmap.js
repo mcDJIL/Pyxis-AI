@@ -48,7 +48,7 @@ Output JSON:
     summaryText: '',
     detailedTitle: '',
     themeColor: '',
-    position: '',
+    position: 'left or right',
     detailedContent: [
       'Proprietary NLP engine reduces integration time by 40% in initial tests.',
       'High net dollar retention (124%) among enterprise cohorts validates mid-market focus.',
