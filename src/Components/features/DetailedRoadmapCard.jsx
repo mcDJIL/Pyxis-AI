@@ -32,19 +32,19 @@ const DetailedRoadmapView = ({ data }) => {
   const activeColorClass = colorMap[themeColor] || "border-gray-300";
 
   return (
-    <div 
+    <div
         // 4. Kita aplikasikan efek transisinya di sini.
         // Jika isVisible true: Opacity 100% dan diam di tempat (translate-y-0)
         // Jika false: Opacity 0% dan turun sedikit (translate-y-4)
-        className={`p-8 bg-white border-2 ${activeColorClass} rounded-2xl shadow-xl transition-all duration-500 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+        className={`p-8 sm:p-4 bg-white border-2 ${activeColorClass} rounded-2xl shadow-xl transition-all duration-500 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
     >
-      <div className="flex flex-col gap-6">
-        
-        <h3 className={`text-xl font-bold ${activeColorClass.split('-')[1]}-600`}>
+      <div className="flex flex-col gap-6 sm:gap-4">
+
+        <h3 className={`text-xl sm:text-lg font-bold ${activeColorClass.split('-')[1]}-600`}>
             {detailedTitle}
         </h3>
-        
-        <div className="flex flex-col gap-5 text-base text-gray-800 leading-relaxed">
+
+        <div className="flex flex-col gap-5 sm:gap-3 text-base sm:text-sm text-gray-800 leading-relaxed">
           {detailedContent.map((point, index) => {
             const pointText = typeof point === 'string' ? point : typeof point === 'object' && point?.description ? point.description : String(point)
             return <p key={index} className="leading-relaxed">{pointText}</p>

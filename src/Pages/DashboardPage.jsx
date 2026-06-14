@@ -151,67 +151,70 @@ const DashboardPage = () => {
 
   return (
     <div>
-      {/* Wrapper utama untuk keseluruhan halaman dashboard */}
-      <div ref={dashboardRef} className="p-8 bg-gray-50 min-h-screen">
-        <div className="max-w-6xl mx-auto flex flex-col gap-8">
-
-          <div className="mb-5">
-            <h1 className="text-3xl font-bold text-gray-800">
+      <div ref={dashboardRef} className="p-4 md:p-8 bg-gray-50 min-h-screen">
+        <div className="max-w-6xl mx-auto">
+          {/* Page Header */}
+          <div className="mb-8 md:mb-10">
+            <h1 className="text-2xl md:text-3xl font-bold text-gray-800">
               {businessName}
             </h1>
-            <p className="text-gray-600 mt-1">
-              {summaryTitle}</p>
+            <p className="text-gray-600 text-base md:text-lg mt-2">
+              {summaryTitle}
+            </p>
           </div>
 
-          {/* 1. Memanggil Komponen Executive Summary */}
-          {summaryContent && (
-            <section>
-              <ExecutiveSummary
-                title="Executive Summary"
-                icon={<FileText size={22} />}
-                content={summaryContent}
-              />
-            </section>
-          )}
+          {/* Sections Container with Proper Spacing */}
+          <div className="flex flex-col gap-12 md:gap-16">
+            {/* Executive Summary Section */}
+            {summaryContent && (
+              <section className="w-full">
+                <ExecutiveSummary
+                  title="Executive Summary"
+                  icon={<FileText size={22} />}
+                  content={summaryContent}
+                />
+              </section>
+            )}
 
-          {/* 2. Memanggil Komponen Strategic Matrix */}
-          {swotData && (
-            <section>
-              <StrategicMatrix
-                content={swotData}
-              />
-            </section>
-          )}
+            {/* Strategic Matrix Section */}
+            {swotData && (
+              <section className="w-full">
+                <StrategicMatrix
+                  content={swotData}
+                />
+              </section>
+            )}
 
-          {/* 3. Memanggil Komponen Roadmap Vertikal */}
-          {roadmapData && (
-            <section>
-              <VerticalRoadmapContainer
-                content={roadmapData}
-              />
-            </section>
-          )}
+            {/* Roadmap Section */}
+            {roadmapData && (
+              <section className="w-full">
+                <VerticalRoadmapContainer
+                  content={roadmapData}
+                />
+              </section>
+            )}
 
-          {prospectData && (
-            <section>
-              <ProspectCard
-                prospect={prospectData}
-                businessName={businessName}
-              />
-            </section>
-          )}
+            {/* Prospect Section */}
+            {prospectData && (
+              <section className="w-full">
+                <ProspectCard
+                  prospect={prospectData}
+                  businessName={businessName}
+                />
+              </section>
+            )}
 
-          {/* Button Export */}
-          <div className="flex justify-end">
-            <button
-              onClick={handleExportPDF}
-              className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
-            >
-              <Download size={20} />
-              Export to PDF
-            </button>
+            {/* Export Button */}
+            <div className="flex justify-end pt-6 md:pt-8 border-t border-gray-200">
+              <button
+                onClick={handleExportPDF}
+                className="flex items-center gap-2 px-4 md:px-6 py-2 md:py-2.5 bg-blue-600 text-white text-sm md:text-base rounded-lg hover:bg-blue-700 transition-colors duration-200"
+              >
+                <Download size={20} />
+                <span>Export to PDF</span>
+              </button>
+            </div>
           </div>
-
         </div>
       </div>
     </div>

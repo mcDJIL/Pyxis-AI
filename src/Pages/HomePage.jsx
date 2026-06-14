@@ -66,18 +66,18 @@ export default function HomePage() {
 
     return (
         <div className="w-full h-full flex items-center justify-center">
-            <div className="w-full max-w-3xl px-4">
+            <div className="w-full max-w-3xl px-4 sm:px-3">
                 <div className="text-center mb-10">
-                    <h2 className="text-4xl font-bold text-text-primary mb-3">
+                    <h2 className="text-4xl sm:text-2xl font-bold text-text-primary mb-3">
                         Good Morning!
                     </h2>
 
-                    <p className="text-md text-slate-500">
+                    <p className="text-base sm:text-sm text-slate-500">
                         What would you like to analyze today?
                     </p>
                 </div>
 
-                <div className="relative bg-white rounded-xl border border-slate-200 shadow-[0_0_8px_rgba(0,0,0,0.1)] p-4">
+                <div className="relative bg-white rounded-xl border border-slate-200 shadow-[0_0_8px_rgba(0,0,0,0.1)] p-4 sm:p-3">
                     <Sparkles
                         className="absolute left-4 top-4 text-slate-400"
                         size={16}

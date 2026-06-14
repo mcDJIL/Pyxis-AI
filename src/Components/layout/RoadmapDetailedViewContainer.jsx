@@ -26,22 +26,22 @@ const RoadmapDetailedViewContainer = ({ selectedId, onSelect, roadmapData }) => 
       - Pada layar kecil (mobile): menumpuk vertikal (flex-col)
       - Pada layar medium ke atas (md:flex-row): berdampingan kiri-kanan
     */
-    <div className="flex flex-col md:flex-row gap-8 items-start w-full min-h-[450px]">
-      
+    <div className="flex flex-col md:flex-row gap-8 sm:gap-4 items-start w-full min-h-[450px] sm:min-h-auto">
+
       {/* SISI KIRI: Kartu Analisis Detail (Mengambil sisa ruang yang tersedia)
-        order-2 & md:order-1 memastikan di mobile kartu berada di bawah tombol, 
+        order-2 & md:order-1 memastikan di mobile kartu berada di bawah tombol,
         tapi di desktop kembali ke posisi kiri.
       */}
-      <div className="flex-1 w-full order-2 md:order-1 transition-all duration-500">
+      <div className="flex-1 w-full order-2 md:order-1 transition-all duration-500 sm:px-2">
         <DetailedRoadmapView data={currentPhaseData} />
       </div>
 
       {/* SISI KANAN: Sidebar Navigasi Kontrol Kuartal
         Lebarnya otomatis menyesuaikan (w-auto) agar garis menempel rapi di kanan
       */}
-      <div className="w-full md:w-auto order-1 md:order-2 flex justify-center md:justify-start">
-        <RoadmapTimelineContainer 
-          activeId={selectedId} 
+      <div className="w-full md:w-auto order-1 md:order-2 flex justify-center md:justify-start sm:px-2">
+        <RoadmapTimelineContainer
+          activeId={selectedId}
           onSelect={onSelect}
           roadmapData={roadmapData}
         />

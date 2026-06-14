@@ -64,12 +64,12 @@ function DepthSlider({ label, value, onChange }) {
 
 function SectionCard({ icon: Icon, title, description, children }) {
   return (
-    <div className="bg-white border border-gray-100 rounded-xl shadow-sm p-6 flex flex-col gap-0">
+    <div className="bg-white border border-gray-100 rounded-xl shadow-sm p-6 sm:p-4 flex flex-col gap-0">
       <div className="flex items-center gap-3 mb-3">
         <Icon size={18} className="text-teal-700 flex-shrink-0" />
-        <h2 className="text-xl font-semibold text-black leading-snug">{title}</h2>
+        <h2 className="text-xl sm:text-lg font-semibold text-black leading-snug">{title}</h2>
       </div>
-      <p className="text-sm font-normal text-gray-500 mb-6">{description}</p>
+      <p className="text-sm sm:text-xs font-normal text-gray-500 mb-6">{description}</p>
       {children}
     </div>
   )
@@ -114,17 +114,17 @@ export default function SettingsPage() {
   }
 
   return (
-    <div className="min-h-full p-8">
+    <div className="min-h-full p-4 sm:p-8">
       <div className="max-w-6xl mx-auto">
         {/* Page Header */}
-        <div className="flex flex-col gap-1 mb-12">
-          <h1 className="text-4xl font-bold text-black leading-10 tracking-tight md:text-3xl sm:text-2xl">AI Configuration</h1>
-          <p className="text-lg font-normal text-gray-500 leading-relaxed md:text-base sm:text-sm">
+        <div className="flex flex-col gap-1 mb-12 sm:mb-8">
+          <h1 className="text-4xl sm:text-2xl font-bold text-black leading-10 tracking-tight">AI Configuration</h1>
+          <p className="text-lg sm:text-sm font-normal text-gray-500 leading-relaxed">
             Fine-tune the generative models and analytical parameters for your projects.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-10 lg:items-start">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-10 lg:items-start sm:gap-4">
         {/* Bento Grid */}
           {/* ── Left Column ── */}
           <div className="flex flex-col gap-6 lg:col-span-2">
@@ -135,7 +135,7 @@ export default function SettingsPage() {
               description="Define the brand persona or overarching strategic lens the AI should apply universally to all outputs."
             >
               <textarea
-                className="w-full min-h-40 p-3 border border-gray-300 rounded-xl text-base text-black bg-white resize-vertical outline-none transition-all focus:border-teal-700 focus:ring-4 focus:ring-teal-700 focus:ring-opacity-10 placeholder:text-gray-400"
+                className="w-full min-h-32 sm:min-h-24 p-3 border border-gray-300 rounded-xl text-base sm:text-sm text-black bg-white resize-vertical outline-none transition-all focus:border-teal-700 focus:ring-4 focus:ring-teal-700 focus:ring-opacity-10 placeholder:text-gray-400"
                 placeholder="e.g., 'Act as a conservative financial advisor focusing on risk mitigation and sustainable long-term growth. Prioritize EBITDA margins over aggressive user acquisition...'"
                 value={config.globalInstruction}
                 onChange={(e) => set('globalInstruction', e.target.value)}
@@ -173,7 +173,7 @@ export default function SettingsPage() {
             >
               <div className="relative">
                 <select
-                  className="w-full px-3 py-3 pr-10 border border-gray-300 rounded-xl text-base text-black bg-white appearance-none outline-none cursor-pointer transition-all focus:border-teal-700 focus:ring-4 focus:ring-teal-700 focus:ring-opacity-10"
+                  className="w-full px-3 py-3 pr-10 border border-gray-300 rounded-xl text-base sm:text-sm text-black bg-white appearance-none outline-none cursor-pointer transition-all focus:border-teal-700 focus:ring-4 focus:ring-teal-700 focus:ring-opacity-10"
                   value={config.language}
                   onChange={(e) => set('language', e.target.value)}
                 >
@@ -230,10 +230,10 @@ export default function SettingsPage() {
             </SectionCard>
 
             {/* Action Buttons */}
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-3 sm:gap-2">
               <button
                 onClick={handleSave}
-                className="flex items-center justify-center gap-2 w-full px-6 py-3.5 border-none rounded-xl text-sm font-semibold tracking-wide text-white bg-gradient-to-r from-teal-600 to-teal-800 shadow-sm cursor-pointer transition-opacity hover:opacity-90 relative"
+                className="flex items-center justify-center gap-2 w-full px-6 sm:px-4 py-3.5 sm:py-3 border-none rounded-xl text-sm sm:text-xs font-semibold tracking-wide text-white bg-gradient-to-r from-teal-600 to-teal-800 shadow-sm cursor-pointer transition-opacity hover:opacity-90 relative"
               >
                 {showSaved ? (
                   <>
@@ -248,7 +248,7 @@ export default function SettingsPage() {
                 )}
               </button>
               <button
-                className="flex items-center justify-center gap-2 w-full px-6 py-3.5 border border-gray-300 rounded-xl text-sm font-semibold tracking-wide text-black bg-transparent cursor-pointer transition-colors hover:bg-black hover:bg-opacity-3 hover:text-white"
+                className="flex items-center justify-center gap-2 w-full px-6 sm:px-4 py-3.5 sm:py-3 border border-gray-300 rounded-xl text-sm sm:text-xs font-semibold tracking-wide text-black bg-transparent cursor-pointer transition-colors hover:bg-black hover:bg-opacity-3 hover:text-white"
                 onClick={handleReset}
               >
                 <RotateCcw size={14} />

@@ -15,11 +15,11 @@ export default function HistoryPage() {
   console.log('Analysis History:', history)
 
   return (
-    <div className="min-h-full p-8">
+    <div className="min-h-full p-4 sm:p-8">
         <div className="max-w-6xl mx-auto">
-        <header className="mb-12">
-            <h1 className="m-0 mb-2 text-4xl font-bold text-black tracking-tight md:text-3xl">Analysis History</h1>
-            <p className="m-0 max-w-3xl text-xl font-normal text-gray-500 leading-relaxed md:text-base">
+        <header className="mb-12 sm:mb-8">
+            <h1 className="m-0 mb-2 text-4xl sm:text-2xl font-bold text-black tracking-tight">Analysis History</h1>
+            <p className="m-0 max-w-3xl text-lg sm:text-sm font-normal text-gray-500 leading-relaxed">
             Review past analytical models, simulations, and generated insights from the intelligence engine.
             </p>
         </header>
@@ -27,7 +27,7 @@ export default function HistoryPage() {
         {history.length === 0 ? (
             <EmptyState />
         ) : (
-            <div className="grid gap-4 grid-cols-4 md:grid-cols-4 sm:grid-cols-1">
+            <div className="grid gap-4 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1">
             {history?.map((item) => (
                 <HistoryCard
                 key={item.id}

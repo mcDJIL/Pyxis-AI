@@ -26,24 +26,24 @@ const SwotCard = ({
     <div
       className="
         flex flex-col
-        p-5
+        p-5 sm:p-3
         bg-white
         border border-gray-100
         rounded-xl
         shadow-sm
-        min-h-[280px]
+        min-h-[280px] sm:min-h-auto
       "
     >
       {/* Header */}
-      <div className="flex items-center gap-3 mb-4">
+      <div className="flex items-center gap-3 mb-4 sm:mb-3">
         <div
-          className={`p-2 rounded-md ${activeColor}`}
+          className={`p-2 sm:p-1.5 rounded-md ${activeColor}`}
         >
           {icon}
         </div>
 
         <h3
-          className={`font-semibold text-lg ${textColor}`}
+          className={`font-semibold text-lg sm:text-base ${textColor}`}
         >
           {title}
         </h3>
