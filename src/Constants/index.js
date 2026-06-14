@@ -1,4 +1,4 @@
-export const APP_NAME    = 'BizCode'
+export const APP_NAME    = 'Pyxis'
 export const APP_VERSION = '0.1.0'
 export const AI_MODEL    = 'claude-sonnet-4-6'
 
