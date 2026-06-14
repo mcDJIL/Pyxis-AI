@@ -27,7 +27,7 @@ export default function HistoryPage() {
         {history.length === 0 ? (
             <EmptyState />
         ) : (
-            <div className="grid gap-4 grid-cols-4 md:grid-cols-2 sm:grid-cols-1">
+            <div className="grid gap-4 grid-cols-4 md:grid-cols-4 sm:grid-cols-1">
             {history?.map((item) => (
                 <HistoryCard
                 key={item.id}
