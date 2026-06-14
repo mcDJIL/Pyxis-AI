@@ -40,10 +40,18 @@ Kembalikan response dalam bahasa ${outputLanguage}.${globalContext}
 Kembalikan JSON:
 
 {
-  "strengths": [],
-  "weaknesses": [],
-  "opportunities": [],
-  "threats": []
+  "strengths": [
+    "Deskripsi singkat dan padat saja cukup 1 kalimat tentang kekuatan ini",
+  ],
+  "weaknesses": [
+    "Deskripsi singkat dan padat saja cukup 1 kalimat tentang kelemahan ini",
+  ],
+  "opportunities": [
+    "Deskripsi singkat dan padat saja cukup 1 kalimat tentang peluang ini",
+  ],
+  "threats": [
+    "Deskripsi singkat dan padat saja cukup 1 kalimat tentang ancaman ini",
+  ]
 }
 `
 
