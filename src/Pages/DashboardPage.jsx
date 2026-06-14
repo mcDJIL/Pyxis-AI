@@ -35,32 +35,32 @@ const DashboardPage = () => {
 
         <div className="mb-12">
           <h1 className="text-3xl font-bold text-gray-800">
-            {analysis.analysis.analysis.businessConcept.businessName}
+            {analysis.analysis.businessConcept.businessName}
           </h1>
           <p className="text-gray-600 mt-1">
-            {analysis.analysis.analysis.summary.title}</p>
+            {analysis.analysis.summary.title}</p>
         </div>
-        
+
         {/* 1. Memanggil Komponen Executive Summary */}
-        <ExecutiveSummary 
+        <ExecutiveSummary
           title="Executive Summary"
           icon={<FileText size={22} />}
-          content={analysis.analysis.analysis.summary.content}
+          content={analysis.analysis.summary.content}
         />
 
         {/* 2. Memanggil Komponen Strategic Matrix */}
         <StrategicMatrix
-          content={analysis.analysis.analysis.swot}
+          content={analysis.analysis.swot}
         />
 
         {/* 3. Memanggil Komponen Roadmap Vertikal */}
         <VerticalRoadmapContainer
-          content={analysis.analysis.analysis.roadmap}
+          content={analysis.analysis.roadmap}
         />
 
         <ProspectCard
-          prospect={analysis.analysis.analysis.prospect}
-          businessName={analysis.analysis.analysis.businessConcept.businessName}
+          prospect={analysis.analysis.prospect}
+          businessName={analysis.analysis.businessConcept.businessName}
         />
 
       </div>
