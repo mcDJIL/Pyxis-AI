@@ -22,19 +22,19 @@ export async function generateProspect(
   const globalContext = globalInstruction ? `\n\nKepatuhan terhadap context berikut:\n${globalInstruction}` : ''
 
   const prompt = `
-Analisis prospek bisnis berikut:
+Analisis prospek bisnis berikut secara mendalam:
 
 ${JSON.stringify(businessConcept)}
 
-Berikan skor (skala 0-10) berdasarkan:
-- Market Demand
-- Scalability
-- Competition
-- Profitability
+Berikan skor (skala 0-10) berdasarkan analisis:
+- Market Demand: Berapa besar permintaan pasar?
+- Scalability: Seberapa skalabel model bisnis ini?
+- Competition: Tingkat kompetisi di pasar?
+- Profitability: Potensi profitabilitas?
 
 Respond dalam bahasa ${outputLanguage}.${globalContext}
 
-Output JSON:
+Berikan respons HANYA sebagai valid JSON (tanpa markdown, tanpa penjelasan):
 
 {
   "score": 8.5,
@@ -43,25 +43,27 @@ Output JSON:
     {
       "id": "growth",
       "title": "Growth Opportunities",
-      "description": "..."
+      "description": "Deskripsi spesifik tentang peluang pertumbuhan yang dapat dicapai. Jelaskan pasar target, segmen pelanggan potensial, dan strategi penetrasi pasar. 2-3 kalimat yang relevan dan actionable."
     },
     {
       "id": "scalability",
       "title": "Market Scalability",
-      "description": "..."
+      "description": "Analisis kemampuan bisnis untuk scale. Bagaimana sistem dapat berkembang dengan pertumbuhan? Apa saja bottleneck potensial? Jelaskan infrastruktur dan resources yang diperlukan. 2-3 kalimat terperinci."
     },
     {
       "id": "competitive",
       "title": "Competitive Advantage",
-      "description": "..."
+      "description": "Identifikasi keunggulan kompetitif utama dibandingkan pesaing. Apa yang membuat bisnis ini unique? Bagaimana mempertahankan posisi di pasar? Jelaskan value proposition yang jelas. 2-3 kalimat spesifik."
     }
   ]
 }
 
-Catatan:
-- "score" adalah angka desimal antara 0 hingga 10
-- "label" bisa berupa: "High Potential", "Medium Potential", atau "Low Potential"
-- Setiap insight harus memiliki deskripsi 2-3 kalimat yang spesifik dan relevan
+PENTING:
+- "score" HARUS berupa angka desimal antara 0 dan 10
+- "label" HARUS salah satu dari: "High Potential", "Medium Potential", atau "Low Potential"
+- HARUS ada 3 insights dengan id: "growth", "scalability", "competitive"
+- Setiap deskripsi HARUS 2-3 kalimat, spesifik, actionable, dan dalam bahasa ${outputLanguage}
+- Respons HANYA JSON, tidak ada markdown atau teks tambahan
 `
 
   const response = await ai.models.generateContent({
