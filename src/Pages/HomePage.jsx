@@ -43,8 +43,8 @@ export default function HomePage() {
             if (data.success !== true) {
                 throw new Error(data.message || 'Failed to analyze business idea')
             } else {
-                setAnalysis(data)
-                console.log('Analysis Result:', data)
+                setAnalysis(data.analysis)
+                console.log('Analysis Result:', data.analysis)
 
                 const newId = useAnalysisStore.getState().currentAnalysisId
                 toast.success('Analysis completed successfully!')
