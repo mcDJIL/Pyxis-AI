@@ -20,20 +20,19 @@ export default function HomePage() {
 
         try {
             setLoading(true)
-
             setCurrentIdea(prompt)
 
             const response = await fetch(
-            'http://localhost:5000/api/analyze-business',
-            {
-                method: 'POST',
-                headers: {
-                'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    idea: prompt,
-                }),
-            }
+                'http://localhost:5000/api/analyze-business',
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        idea: prompt,
+                    }),
+                }
             )
 
             const data = await response.json()
@@ -44,16 +43,16 @@ export default function HomePage() {
                 setAnalysis(data)
                 console.log('Analysis Result:', data)
 
-                navigate(`dashboard/${data.id}`)
+                const newId = useAnalysisStore.getState().currentAnalysisId
+                navigate(`/dashboard/${newId}`)
             }
         } catch (error) {
             setError(error.message)
-            console.log(error);
-            
+            console.log(error)
         } finally {
             setLoading(false)
         }
-        }
+    }
 
     return (
         <div className="w-full h-full flex items-center justify-center">
