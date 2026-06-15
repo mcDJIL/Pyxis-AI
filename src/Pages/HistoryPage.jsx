@@ -18,8 +18,8 @@ export default function HistoryPage() {
     <div className="min-h-full p-4 sm:p-8">
         <div className="max-w-6xl mx-auto">
         <header className="mb-12 sm:mb-8">
-            <h1 className="m-0 mb-2 text-4xl sm:text-2xl font-bold text-black tracking-tight">Analysis History</h1>
-            <p className="m-0 max-w-3xl text-lg sm:text-sm font-normal text-gray-500 leading-relaxed">
+            <h1 className="m-0 mb-2 text-2xl sm:text-3xl font-bold text-black tracking-tight">Analysis History</h1>
+            <p className="m-0 text-base md:text-lg font-normal text-gray-500 leading-relaxed">
             Review past analytical models, simulations, and generated insights from the intelligence engine.
             </p>
         </header>

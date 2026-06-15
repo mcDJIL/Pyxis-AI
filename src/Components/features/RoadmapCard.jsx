@@ -23,13 +23,13 @@ const RoadmapCard = ({ data, onClick }) => {
       className={`p-6 sm:p-4 bg-white border-2 ${activeColorClass} rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 ease-in-out cursor-pointer hover:-translate-y-1 w-full max-w-md sm:max-w-none`}
     >
       <div className="flex flex-col gap-3 sm:gap-2">
-        <h3 className={`text-base sm:text-sm font-semibold text-slate-800`}>{summaryTitle}</h3>
+        <h3 className={`text-sm sm:text-base font-semibold text-slate-800`}>{summaryTitle}</h3>
 
-        <p className="text-sm sm:text-xs text-slate-600 leading-relaxed line-clamp-3">
-          {displayText}
+        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed line-clamp-3">
+        {displayText}
         </p>
 
-        <div className="text-xs sm:text-[10px] font-medium text-blue-600 mt-2 sm:mt-1 flex items-center gap-1">
+        <div className="text-[10px] sm:text-xs font-medium text-blue-600 mt-2 sm:mt-1 flex items-center gap-1">
             <span className="sm:hidden">Lihat Detail</span>
             <span className="hidden sm:inline">Detail</span> <span>→</span>
         </div>

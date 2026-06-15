@@ -67,9 +67,9 @@ function SectionCard({ icon: Icon, title, description, children }) {
     <div className="bg-white border border-gray-100 rounded-xl shadow-sm p-6 sm:p-4 flex flex-col gap-0">
       <div className="flex items-center gap-3 mb-3">
         <Icon size={18} className="text-teal-700 flex-shrink-0" />
-        <h2 className="text-xl sm:text-lg font-semibold text-black leading-snug">{title}</h2>
+        <h2 className="text-lg sm:text-xl font-semibold text-black leading-snug">{title}</h2>
       </div>
-      <p className="text-sm sm:text-xs font-normal text-gray-500 mb-6">{description}</p>
+      <p className="text-xs sm:text-sm font-normal text-gray-500 mb-6">{description}</p>
       {children}
     </div>
   )
@@ -118,8 +118,8 @@ export default function SettingsPage() {
       <div className="max-w-6xl mx-auto">
         {/* Page Header */}
         <div className="flex flex-col gap-1 mb-12 sm:mb-8">
-          <h1 className="text-4xl sm:text-2xl font-bold text-black leading-10 tracking-tight">AI Configuration</h1>
-          <p className="text-lg sm:text-sm font-normal text-gray-500 leading-relaxed">
+          <h1 className="text-2xl sm:text-3xl font-bold text-black leading-10 tracking-tight">AI Configuration</h1>
+          <p className="text-base md:text-lg font-normal text-gray-500 leading-relaxed">
             Fine-tune the generative models and analytical parameters for your projects.
           </p>
         </div>
@@ -233,7 +233,7 @@ export default function SettingsPage() {
             <div className="flex flex-col gap-3 sm:gap-2">
               <button
                 onClick={handleSave}
-                className="flex items-center justify-center gap-2 w-full px-6 sm:px-4 py-3.5 sm:py-3 border-none rounded-xl text-sm sm:text-xs font-semibold tracking-wide text-white bg-gradient-to-r from-teal-600 to-teal-800 shadow-sm cursor-pointer transition-opacity hover:opacity-90 relative"
+                className="flex items-center justify-center gap-2 w-full px-4 sm:px-6 py-3 sm:py-3.5 border-none rounded-xl text-xs sm:text-sm font-semibold tracking-wide text-white bg-gradient-to-r from-teal-600 to-teal-800 shadow-sm cursor-pointer transition-opacity hover:opacity-90 relative"
               >
                 {showSaved ? (
                   <>
@@ -248,7 +248,7 @@ export default function SettingsPage() {
                 )}
               </button>
               <button
-                className="flex items-center justify-center gap-2 w-full px-6 sm:px-4 py-3.5 sm:py-3 border border-gray-300 rounded-xl text-sm sm:text-xs font-semibold tracking-wide text-black bg-transparent cursor-pointer transition-colors hover:bg-black hover:bg-opacity-3 hover:text-white"
+                className="flex items-center justify-center gap-2 w-full px-4 sm:px-6 py-3 sm:py-3.5 border border-gray-300 rounded-xl text-xs sm:text-sm font-semibold tracking-wide text-black bg-transparent cursor-pointer transition-colors hover:bg-black hover:bg-opacity-3 hover:text-white"
                 onClick={handleReset}
               >
                 <RotateCcw size={14} />

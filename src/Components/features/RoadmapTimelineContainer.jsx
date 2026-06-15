@@ -13,11 +13,11 @@ const RoadmapTimelineContainer = ({ activeId, onSelect, roadmapData }) => {
       {roadmapData.map((phase) => (
         <button
           key={phase.id}
-          className={`relative z-10 flex items-center justify-center p-3 sm:p-2 text-white rounded-lg min-w-[120px] sm:min-w-[100px] shadow-md transition-all duration-500 ease-in-out hover:scale-105 ${activeId === phase.id ? 'bg-slate-800 ring-4 ring-slate-100' : 'bg-slate-600 hover:bg-slate-700'}`}
+          className={`cursor-pointer relative z-10 flex items-center justify-center p-2 sm:p-3 text-white rounded-lg min-w-[100px] sm:min-w-[120px] shadow-md transition-all duration-500 ease-in-out hover:scale-105 ${activeId === phase.id ? 'bg-slate-800 ring-4 ring-slate-100' : 'bg-slate-600 hover:bg-slate-700'}`}
           onClick={() => onSelect(phase.id)} // Ubah fase aktif saat diklik
         >
           {/* 3. Gunakan phase.quarter (karena di roadmapData atributnya bernama 'quarter', bukan 'label') */}
-          <h4 className="font-semibold text-sm sm:text-xs">{phase.quarter}</h4>
+          <h4 className="font-semibold text-xs sm:text-sm">{phase.quarter}</h4>
         </button>
       ))}
     </div>

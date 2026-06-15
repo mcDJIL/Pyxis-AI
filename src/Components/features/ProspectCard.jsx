@@ -1,4 +1,4 @@
-import { TrendingUp, BarChart2, Award, Map } from 'lucide-react'
+import { TrendingUp, BarChart2, Award, FileArchive } from 'lucide-react'
 import { toPng } from 'html-to-image'
 import jsPDF from 'jspdf'
 
@@ -50,8 +50,8 @@ export default function ProspectCard({ prospect, businessName }) {
     <section className="w-full">
       {/* Header */}
       <div className="flex items-center gap-3 md:gap-4 mb-6 md:mb-8">
-        <Map size={24} color="#0059BB" className="flex-shrink-0" />
-        <h2 className="text-xl md:text-2xl font-semibold text-gray-900">
+        <FileArchive size={24} color="#0059BB" className="flex-shrink-0" />
+        <h2 className="text-lg md:text-xl font-semibold text-gray-900">
           Business Prospects
         </h2>
       </div>

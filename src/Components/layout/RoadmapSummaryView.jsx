@@ -58,7 +58,7 @@ const RoadmapSummaryView = ({ onSelect, roadmapData }) => {
                 </div>
 
                 {/* Alternating card layout - left-right */}
-                <div className={`flex w-full ${isLeft ? 'justify-end pr-[calc(50%+2rem)]' : 'justify-start pl-[calc(50%+2rem)]'}`}>
+                <div className={`flex w-full ${isLeft ? 'justify-end pr-[calc(55%+2rem)]' : 'justify-start pl-[calc(55%+2rem)]'}`}>
                   <RoadmapCard
                     data={data}
                     onClick={() => onSelect(id)}

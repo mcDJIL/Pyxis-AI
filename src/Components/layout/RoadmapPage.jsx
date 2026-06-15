@@ -31,7 +31,7 @@ const RoadmapPage = ({ content }) => {
             <div className={`absolute left-0 transition-all duration-500 ease-in-out ${selectedPhaseId ? 'opacity-100 z-10 pointer-events-auto' : 'opacity-0 -z-10 pointer-events-none'}`}>
                 <button
                     onClick={handleBackToSummary}
-                    className="p-2 sm:p-1.5 rounded-full bg-white border border-slate-200 text-slate-600 hover:bg-slate-100 transition-colors duration-300 shadow-sm flex items-center justify-center"
+                    className="cursor-pointer p-2 sm:p-1.5 rounded-full bg-white border border-slate-200 text-slate-600 hover:bg-slate-100 transition-colors duration-300 shadow-sm flex items-center justify-center"
                     title="Kembali ke Ringkasan"
                 >
                     <ArrowLeft size={18} className="sm:w-4 sm:h-4" />
@@ -41,8 +41,8 @@ const RoadmapPage = ({ content }) => {
             {/* Judul sekarang bebas dari dorongan gap dan menempel sempurna di kiri */}
             {/* Saat kartu diklik, judul akan memudar dan bergeser sedikit ke kanan untuk memberi tempat pada tombol Back */}
             <div className="flex items-center gap-3 sm:gap-2">
-                <Map size={24} className="text-teal-700 sm:w-5 sm:h-5" />
-                <h2 className={`text-xl sm:text-lg font-bold text-gray-900 transition-all duration-500 ease-in-out ${selectedPhaseId ? 'opacity-0 translate-x-4 pointer-events-none' : 'opacity-100 translate-x-0'}`}>
+                <Map size={24} className="text-[#0059BB] sm:w-5 sm:h-5" />
+                <h2 className={`text-lg sm:text-xl font-bold text-gray-900 transition-all duration-500 ease-in-out ${selectedPhaseId ? 'opacity-0 translate-x-4 pointer-events-none' : 'opacity-100 translate-x-0'}`}>
                     Project Roadmap
                 </h2>
             </div>
@@ -50,7 +50,7 @@ const RoadmapPage = ({ content }) => {
         
         {/* Area Konten Roadmap */}
         {/* Diberi min-h-[600px] agar layout absolut di dalamnya tidak membuat tinggi halaman menjadi 0 */}
-        <div className="relative w-full min-h-[1150px] min-[400px]:min-h-[1000px]">
+        <div className="relative w-full min-h-[1150px] min-[400px]:min-h-[1000px] md:min-h-[800px]">
             {/* Tampilan Ringkasan Awal */}
             <div className={`absolute top-0 left-0 w-full transition-all duration-700 ease-in-out ${selectedPhaseId ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100'}`}>
                 <RoadmapSummaryView 

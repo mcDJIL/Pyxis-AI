@@ -68,12 +68,12 @@ export default function HomePage() {
         <div className="w-full h-full flex items-center justify-center">
             <div className="w-full max-w-3xl px-4 sm:px-3">
                 <div className="text-center mb-10">
-                    <h2 className="text-4xl sm:text-2xl font-bold text-text-primary mb-3">
+                    <h2 className="text-2xl sm:text-4xl font-bold text-text-primary mb-3">
                         Good Morning!
                     </h2>
 
-                    <p className="text-base sm:text-sm text-slate-500">
-                        What would you like to analyze today?
+                    <p className="text-sm sm:text-base text-slate-500">
+                        What business idea do you want to analyze today?
                     </p>
                 </div>
 
@@ -86,7 +86,7 @@ export default function HomePage() {
                     <textarea
                         value={prompt}
                         onChange={(e) => setPrompt(e.target.value)}
-                        placeholder="Ask AI to analyze your business idea..."
+                        placeholder="Ask Pyxis AI to analyze your business idea..."
                         className="pl-7 w-full min-h-[140px] resize-none bg-transparent outline-none text-black placeholder:text-slate-400"
                     />
 
@@ -113,13 +113,14 @@ export default function HomePage() {
                             className="
                             w-10 h-10
                             rounded-full
-                            bg-black
+                            bg-[#0059BB]
                             text-white
                             flex items-center justify-center
                             hover:scale-105
                             transition
                             disabled:opacity-50
                             disabled:cursor-not-allowed
+                            cursor-pointer
                         "
                         >
                             {loading ? (

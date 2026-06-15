@@ -46,14 +46,14 @@ const StrategicMatrix = ({ content }) => {
       <div className="flex items-center gap-3 mb-4">
         <LayoutDashboard
           size={24}
-          className="text-teal-700 sm:w-5 sm:h-5"
+          className="text-[#0059BB] sm:w-5 sm:h-5"
         />
-        <h2 className="text-xl sm:text-lg font-bold">
+        <h2 className="text-lg sm:text-xl font-bold">
           Strategic Matrix
         </h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-3 items-start">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 items-start">
 
         {swotCards.map((card) => (
           <SwotCard

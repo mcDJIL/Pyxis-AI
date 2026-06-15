@@ -40,11 +40,11 @@ const DetailedRoadmapView = ({ data }) => {
     >
       <div className="flex flex-col gap-6 sm:gap-4">
 
-        <h3 className={`text-xl sm:text-lg font-bold ${activeColorClass.split('-')[1]}-600`}>
+        <h3 className={`text-lg sm:text-xl font-bold ${activeColorClass.split('-')[1]}-600`}>
             {detailedTitle}
         </h3>
 
-        <div className="flex flex-col gap-5 sm:gap-3 text-base sm:text-sm text-gray-800 leading-relaxed">
+        <div className="flex flex-col gap-3 sm:gap-5 text-sm sm:text-base text-gray-800 leading-relaxed">
           {detailedContent.map((point, index) => {
             const pointText = typeof point === 'string' ? point : typeof point === 'object' && point?.description ? point.description : String(point)
             return <p key={index} className="leading-relaxed">{pointText}</p>

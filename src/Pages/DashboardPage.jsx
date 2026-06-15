@@ -208,7 +208,7 @@ const DashboardPage = () => {
             <div className="flex justify-end pt-6 md:pt-8 border-t border-gray-200">
               <button
                 onClick={handleExportPDF}
-                className="flex items-center gap-2 px-4 md:px-6 py-2 md:py-2.5 bg-blue-600 text-white text-sm md:text-base rounded-lg hover:bg-blue-700 transition-colors duration-200"
+                className="cursor-pointer flex items-center gap-2 px-4 md:px-6 py-2 md:py-2.5 bg-blue-600 text-white text-sm md:text-base rounded-lg hover:bg-blue-700 transition-colors duration-200"
               >
                 <Download size={20} />
                 <span>Export to PDF</span>

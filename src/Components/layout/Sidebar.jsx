@@ -106,8 +106,8 @@ export default function Sidebar() {
             )
           }
         >
-          <div className="w-5 h-5 rounded-sm bg-black/10 flex items-center justify-center">
-            <Plus size={14} />
+          <div className="w-5 h-5 rounded-sm bg-[#0059BB] flex items-center justify-center">
+            <Plus className="text-white" size={14} />
           </div>
 
           {!collapsed && (
